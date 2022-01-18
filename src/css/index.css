@@ -1,0 +1,49 @@
+.height-100{
+    height: 100%;
+}
+
+.scroll-view-component{
+    width: 90%;
+}
+
+.fixed-component{
+    width: 10%;
+}
+
+.total-display-settings{
+    margin-top: 6%;
+    height: 87vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.logoFull{
+    width: 15%;
+}
+
+.yt-red{
+    color:  #F10000;
+}
+
+.my-nav-item{
+    padding: 1em;
+}
+
+.my-nav-item:hover{
+    background-color: lightgray;
+    color: white;
+}
+
+.my-nav-link-hover:hover{
+    color: #F10000;
+}
+
+.my-sidebar-active{
+    background-color: black;
+}
+
+
+
