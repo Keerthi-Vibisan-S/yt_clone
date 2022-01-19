@@ -4,9 +4,11 @@ import * as fa from 'react-icons/fa';
 import * as ai from 'react-icons/ai';
 import * as md from 'react-icons/md';
 import SidebarData from '../data/sidebarData.js';
+import session from './navbar';
 
 export default function Sidebar()
 {
+    console.log(session);
     return(
         <section className='d-flex flex-column flex-shrink-0 bg-light fixed-component height-100 bg-light'>
             <ul className='nav nav-pills nav-flush flex-column mb-auto text-center'>

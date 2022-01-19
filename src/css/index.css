@@ -4,6 +4,7 @@
 
 .scroll-view-component{
     width: 90%;
+    padding: 2em;
 }
 
 .fixed-component{
@@ -45,5 +46,17 @@
     background-color: black;
 }
 
+.video-page-settings{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.video-page-settings > div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 

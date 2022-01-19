@@ -1,14 +1,22 @@
 import React, {useEffect, useState} from 'react'
 import Axios from 'axios';
 import * as ai from 'react-icons/ai';
-import GoogleLogin from 'react-google-login';
+import * as fa from 'react-icons/fa';
+import {GoogleLogin, GoogleLogout} from 'react-google-login';
+import {Link} from 'react-router-dom';
 
 export default function Navbar() {
 
     const[auth, setAuth] = useState(null);
     const [session, setSession] = useState(false);
 
+    //Setting up details from Local Storage if userRefresh to StoreBack
+    useEffect(()=> {
+        const data = localStorage.getItem('authDetails');
+        setAuth(JSON.parse(data));
+    }, []);
 
+    //Works when auth variable in useState changes
     useEffect(async () => {
         console.log(auth);
         if(auth == null)
@@ -41,11 +49,20 @@ export default function Navbar() {
         }
     }, [auth]);
      
+    //Works when user clicks google sign-in button
     function responseGoogle(response)
     {
-        //console.log(response.profileObj.email);
-       
+        //Setting login cred in local storage
+        localStorage.setItem('authDetails', JSON.stringify(response.profileObj));
         setAuth(response.profileObj);
+    }
+
+    //Google Logout
+    function logout(response)
+    {
+        console.log(response);
+        localStorage.removeItem('authDetails');
+        window.location.reload(true);
     }
     
     return (
@@ -62,14 +79,31 @@ export default function Navbar() {
                             <img src={auth.imageUrl} alt="" width="32" height="32" className="rounded-circle me-2" />
                             <strong>{auth.name}</strong>
                         </a>
-                        <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                            <li>
-                                Logout
+                        <ul className="dropdown-menu dropdown-menu-light shadow" aria-labelledby="dropdownUser1">
+
+                            <li className='border-bottom mb-2'>
+                                <Link to="/account" className='nav-link h5'>Your Account</Link>
                             </li>
+
+                            <li className='mb-2'>
+                            <GoogleLogout
+                            clientId="852762241490-gr45nghc45rkvjp5bs3uqvr4q0qkp80h.apps.googleusercontent.com"
+                            render={renderProps => (
+                                <button className='btn text-dark' onClick={renderProps.onClick} disabled={renderProps.disabled}>Logout</button>
+                              )}
+                            buttonText="Logout"
+                            onLogoutSuccess={logout}
+                            >
+                            </GoogleLogout>
+                            </li>
+
                         </ul>
                     </div>:<div><GoogleLogin
                             clientId="852762241490-gr45nghc45rkvjp5bs3uqvr4q0qkp80h.apps.googleusercontent.com"
-                            buttonText="Login"
+                            render={renderProps => (
+                                <button className='btn btn-light outline' onClick={renderProps.onClick} disabled={renderProps.disabled}><fa.FaGoogle /> Sign in</button>
+                              )}
+                            buttonText="Sign in"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}
@@ -78,3 +112,4 @@ export default function Navbar() {
         </nav>
     )
 }
+

@@ -9,6 +9,7 @@ import Subscriptions from "./Routes/subscriptions";
 import Liked from "./Routes/liked";
 import './css/index.css';
 import Navbar from "./components/navbar";
+import Accounts from "./Routes/accounts";
 
 function Main()
 {
@@ -23,6 +24,7 @@ function Main()
           <Route path="/" exact={true} element={<Home/>} />
           <Route path="/subscriptions"  exact={true} element={<Subscriptions />} />
           <Route path="/liked"  exact={true} element={<Liked />} />
+          <Route path="/account" exact   element={<Accounts />} />
         </Routes>
        </section>
 
