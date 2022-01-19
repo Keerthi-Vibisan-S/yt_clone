@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
+import CreateChannel from '../components/CreateChannel';
+
+
 export default function Accounts() {
     
     const [data, setData] = useState({});
-    console.log('hi');
     
     useEffect(async () => {
         let d = JSON.parse(localStorage.getItem("authDetails"));
@@ -28,6 +31,12 @@ export default function Accounts() {
                 <img src={data.imgurl} alt="" width="200" height="200" className="rounded-circle" />
                 </div>
             </section>
+
+            {
+                String(data.usertype) == "viewer"?<CreateChannel data={data} />:<section className='mt-5'>
+                    <Link to="/channel" className='nav-link btn btn-danger text-light'>Go to My Channel</Link>
+            </section>
+            }
         </section>
     )
 }

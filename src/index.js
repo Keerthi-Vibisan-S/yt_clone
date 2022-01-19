@@ -10,6 +10,7 @@ import Liked from "./Routes/liked";
 import './css/index.css';
 import Navbar from "./components/navbar";
 import Accounts from "./Routes/accounts";
+import ChannelDetails from "./Routes/channelDetails";
 
 function Main()
 {
@@ -25,6 +26,7 @@ function Main()
           <Route path="/subscriptions"  exact={true} element={<Subscriptions />} />
           <Route path="/liked"  exact={true} element={<Liked />} />
           <Route path="/account" exact   element={<Accounts />} />
+          <Route path="/channel" exact element={<ChannelDetails />} />
         </Routes>
        </section>
 

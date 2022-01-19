@@ -82,7 +82,7 @@ export default function Navbar() {
                         <ul className="dropdown-menu dropdown-menu-light shadow" aria-labelledby="dropdownUser1">
 
                             <li className='border-bottom mb-2'>
-                                <Link to="/account" className='nav-link h5'>Your Account</Link>
+                                <Link to="/account" className='nav-link text-dark h6'>Your Account</Link>
                             </li>
 
                             <li className='mb-2'>
