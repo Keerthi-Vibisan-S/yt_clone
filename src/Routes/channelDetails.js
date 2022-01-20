@@ -14,7 +14,7 @@ export default function ChannelDetails() {
         let res = await Axios.get(url);
         setChannel(res.data[0]);
     }, []);
-
+    console.log("Rendering --- "+Sno);
   return(
     <section className='scroll-view-component'>
         <div>

@@ -18,6 +18,10 @@ export default function ChannelVideoUpload(props)
         date:  String (d.getUTCDate()+'/'+(d.getUTCMonth()+1)+"/"+d.getUTCFullYear())
     }
     );
+
+    useEffect(() => {
+        setData({...data, Cno: props.channel})
+    }, [props.channel])
     console.log(data.Cno+ "-- data CNO");
 
     const uploadData = async (e) => {
