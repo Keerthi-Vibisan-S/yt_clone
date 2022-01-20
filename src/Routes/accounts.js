@@ -34,7 +34,7 @@ export default function Accounts() {
 
             {
                 String(data.usertype) == "viewer"?<CreateChannel data={data} />:<section className='mt-5'>
-                    <Link to="/channel" className='nav-link btn btn-danger text-light'>Go to My Channel</Link>
+                    <Link to={"/channel/"+data.Sno} className='nav-link btn btn-danger text-light'>Go to My Channel</Link>
             </section>
             }
         </section>

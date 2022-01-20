@@ -26,7 +26,7 @@ function Main()
           <Route path="/subscriptions"  exact={true} element={<Subscriptions />} />
           <Route path="/liked"  exact={true} element={<Liked />} />
           <Route path="/account" exact   element={<Accounts />} />
-          <Route path="/channel" exact element={<ChannelDetails />} />
+          <Route path="/channel/:Sno" exact element={<ChannelDetails />} />
         </Routes>
        </section>
 
