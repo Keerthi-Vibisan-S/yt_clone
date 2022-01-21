@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import ChannelVideoUpload from '../components/ChannelVideoUpload';
 import Axios from 'axios';
 
+import ChannelVideoLists from '../components/channelVideoLists';
+
 export default function ChannelDetails() {
 
     const {Sno} = useParams();
@@ -24,6 +26,7 @@ export default function ChannelDetails() {
             <p><strong>Creation-Date: </strong>{channel.datez}</p>
             
             <ChannelVideoUpload Sno={Sno} channel={parseInt(channel.Cno)}/>
+            <ChannelVideoLists Sno={Sno} />
         </div>
     </section>
   );
