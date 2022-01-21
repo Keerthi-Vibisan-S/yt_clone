@@ -14,14 +14,15 @@ export default function ChannelVideoUpload(props)
         Sno: parseInt(Sno),
         vname: "",
         desc: "",
-        vtype: "",
+        //vtype: "",
         date:  String (d.getUTCDate()+'/'+(d.getUTCMonth()+1)+"/"+d.getUTCFullYear()),
-        vpath: ""
     }
     );
 
     const[file, setFile] = useState();
     const [progress, setProgress] = useState(0);
+    const [fileErr, setError] = useState("");
+    const [btnShow, setBtnShow] = useState(true);
 
     useEffect(() => {
         setData({...data, Cno: props.channel})
@@ -46,14 +47,15 @@ export default function ChannelVideoUpload(props)
                 }
             });
 
+            
             if(res.data)
             {
                 console.log(res.data);
-                setData({...data, vpath: String(res.data)});
-                console.log(data);
-                const url = "http://localhost:2022/video/updateDb";
+                //setData({...data, vpath: String(res.data)})
+                console.log("Second Axios");
+               const url = "http://localhost:2022/video/updateDb";
 
-                let res2 = await Axios.post(url, data);
+               let res2 = await Axios.post(url, {data: data, path: res.data});
 
                 if(res2.data)
                 {
@@ -64,7 +66,6 @@ export default function ChannelVideoUpload(props)
                         desc: "",
                         vtype: "",
                         date:  String (d.getUTCDate()+'/'+(d.getUTCMonth()+1)+"/"+d.getUTCFullYear()),
-                        vpath: ""
                     });
 
                     setFile(null);
@@ -74,7 +75,38 @@ export default function ChannelVideoUpload(props)
         }
         catch(err)
         {
-            console.log("Error Occurred whille Axios Req "+err);
+            if (err.response.status === 500) {
+                console.log('There was a problem with the server');
+              } else {
+                console.log(err.response.data.msg);
+              }
+              setProgress(0)
+        }
+    }
+
+    //File upload check Fumction
+    function FileCheck(e)
+    {
+        let fname =String(e.target.files[0].name);
+        let pos = fname.lastIndexOf('.');
+        let ext = fname.slice(pos);
+        let nm = fname.substring(0, pos);
+        if (fname.includes(" "))
+        {
+            setError("* File name should not contain any Space");
+            setBtnShow(false);
+        }
+
+        else if (!nm.includes(`_${data.Sno}`))
+        {
+            setError(`* File name should be ${nm+'_'+data.Sno+ext}`);
+            setBtnShow(false);
+        }
+
+        else{
+            setError("");
+            setBtnShow(true);
+            setFile(e.target.files[0]);
         }
     }
 
@@ -95,6 +127,11 @@ export default function ChannelVideoUpload(props)
                     </div>
                     <div className="modal-body">
                         <form onSubmit={uploadData} autoComplete='off'>
+
+                            <div className="mb-3">
+                                <label htmlFor="Name" className="form-label">Your Cno</label>
+                                <input className="form-control" type="text" id="Name" value={data.Cno} readOnly/>
+                            </div>
                 
                             <div className="mb-3">
                                 <label htmlFor="Name" className="form-label">Content Name</label>
@@ -117,8 +154,9 @@ export default function ChannelVideoUpload(props)
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="formFile" className="form-label">Choose the Video File</label>
-                                <input className="form-control" type="file" id="formFile" onChange={(e) => setFile(e.target.files[0])} />
+                                <label htmlFor="formFile" className="form-label">Choose the Video File ( <small className='text-primary fw-bold'>Format:</small><small className='text-success'> filename_YourCno.mp4 </small>)</label>
+                                <input className="form-control" type="file" id="formFile" onChange={FileCheck} />
+                                <small className='text-danger'>{fileErr}</small>
                             </div>
 
                             <div className="mb-3">
@@ -127,7 +165,7 @@ export default function ChannelVideoUpload(props)
                             </div>
 
                             <div className='mb-3'>
-                                <button className='btn btn-outline-success' type='submit'>Upload</button>
+                                <button className={btnShow?"btn btn-success":"hide"} type='submit'>Upload</button>
                             </div>
                             <div className="progress">
                             <div className="progress-bar" role="progressbar" style={{width: `${progress}%`}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{`${progress}%`}</div>

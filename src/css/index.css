@@ -1,62 +1,65 @@
-.height-100{
-    height: 100%;
+.height-100 {
+  height: 100%;
 }
 
-.scroll-view-component{
-    width: 90%;
-    padding: 2em;
+.scroll-view-component {
+  width: 90%;
+  padding: 2em;
 }
 
-.fixed-component{
-    width: 10%;
+.fixed-component {
+  width: 10%;
 }
 
-.total-display-settings{
-    margin-top: 6%;
-    height: 87vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
+.total-display-settings {
+  margin-top: 6%;
+  height: 87vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
-.logoFull{
-    width: 15%;
+.logoFull {
+  width: 15%;
 }
 
-.yt-red{
-    color:  #F10000;
+.yt-red {
+  color: #f10000;
 }
 
-.my-nav-item{
-    padding: 1em;
+.my-nav-item {
+  padding: 1em;
 }
 
-.my-nav-item:hover{
-    background-color: lightgray;
-    color: white;
+.my-nav-item:hover {
+  background-color: lightgray;
+  color: white;
 }
 
-.my-nav-link-hover:hover{
-    color: #F10000;
+.my-nav-link-hover:hover {
+  color: #f10000;
 }
 
-.my-sidebar-active{
-    background-color: black;
+.my-sidebar-active {
+  background-color: black;
 }
 
-.video-page-settings{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.video-page-settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.video-page-settings > div{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.video-page-settings > div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
+.hide {
+  display: none;
+}
