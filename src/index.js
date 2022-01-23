@@ -11,6 +11,7 @@ import './css/index.css';
 import Navbar from "./components/navbar";
 import Accounts from "./Routes/accounts";
 import ChannelDetails from "./Routes/channelDetails";
+import VideoPlayer from "./Routes/videoPlayer";
 
 function Main()
 {
@@ -27,6 +28,7 @@ function Main()
           <Route path="/liked"  exact={true} element={<Liked />} />
           <Route path="/account" exact   element={<Accounts />} />
           <Route path="/channel/:Sno" exact element={<ChannelDetails />} />
+          <Route path="/play" exact element={<VideoPlayer />} />
         </Routes>
        </section>
 

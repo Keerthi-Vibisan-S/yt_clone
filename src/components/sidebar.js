@@ -16,7 +16,7 @@ export default function Sidebar()
                 {SidebarData.map((item, index) => {
                     return(
                         <li key={index} className='my-nav-item'>
-                            <NavLink to={item.path}  exact='true' className='border-bottom yt-red my-nav-link-hover' activeclass='my-sidebar-active'><h3>{item.icon}</h3></NavLink>
+                            <NavLink to={item.path}  exact='true' className={(navData) => navData.isActive?"my-sidebar-active my-nav-link-hover":'border-bottom yt-red my-nav-link-hover'}><h3>{item.icon}</h3></NavLink>
                         </li>
                     );
                 })}

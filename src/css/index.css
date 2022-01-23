@@ -38,8 +38,8 @@
 }
 
 .my-nav-item:hover {
-  background-color: lightgray;
-  color: white;
+  background-color: whitesmoke;
+  color: black;
 }
 
 .my-nav-link-hover:hover {
@@ -47,23 +47,29 @@
 }
 
 .my-sidebar-active {
-  background-color: black;
-}
-
-.video-page-settings {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.video-page-settings > div {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  color: black;
 }
 
 .hide {
   display: none;
+}
+
+/*Video Settings*/
+.video-card {
+  width: 35%;
+  /* border: 2px solid red; */
+  padding: 1em;
+  color: black;
+  cursor: pointer;
+}
+
+.videoPlayer-settings {
+  width: 75%;
+  /* border: 2px solid red; */
+}
+
+.video-utils-align {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
