@@ -56,11 +56,24 @@
 
 /*Video Settings*/
 .video-card {
-  width: 35%;
+  width: 110%;
   /* border: 2px solid red; */
-  padding: 1em;
+  padding: 0.4em;
   color: black;
   cursor: pointer;
+  /* border: 1px solid grey; */
+}
+
+.video-card:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+  box-shadow: 4px 4px 4px 5px lightgray;
+}
+
+.video-page-settings {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .videoPlayer-settings {
@@ -72,4 +85,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.video-uploaded-display {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-gap: 1em;
+  /* border: 2px solid red; */
+}
+
+.home-video-display {
+  /* border: 2px solid red; */
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-gap: 5em;
+}
+
+.video-play-page-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.sugessions-side {
+  width: 25%;
+  margin-left: 2em;
+  /* border: 2px solid red; */
 }

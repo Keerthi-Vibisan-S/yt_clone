@@ -21,7 +21,7 @@ export default class ChannelVideoLists extends Component {
     return (
     <section className='mt-5 border-top p-3'>
         <p className='display-6'>Videos you Uploaded</p>
-        <div>
+        <div className='video-uploaded-display'>
             {this.state.data.map((n) => {
                 let fpath = String(n.pathz);
                 let pos = fpath.indexOf('uploads');

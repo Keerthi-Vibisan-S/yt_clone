@@ -24,7 +24,7 @@ function Home()
     return(
         <section className='scroll-view-component'>
            
-
+           <div className='home-video-display'>
                 {videos.map((n) => {
                    // console.log(n);
                     let pathz = String(n.pathz);
@@ -46,11 +46,7 @@ function Home()
                         //</Link>
                     );
                 })}
-
-                <div>
-
-                </div>
-
+            </div>
         </section>
         );
 }

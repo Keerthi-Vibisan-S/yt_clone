@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-import Axios from 'axios';
+import { useLocation} from 'react-router-dom';
 import * as bs from 'react-icons/bs';
 import * as fc from 'react-icons/fc';
+import VidepPlayerSugession from '../components/videpPlayerSugession';
 
 export default function VideoPlayer(props) {
     
@@ -13,7 +12,7 @@ export default function VideoPlayer(props) {
     let src = pathz.slice(pos);
 
   return (
-  <section className='scroll-view-component'>
+  <section className='scroll-view-component video-play-page-display'>
       <section className='videoPlayer-settings'>
           <div>
               <video src = {src} autoPlay controls className='img-fluid'/>
@@ -34,6 +33,9 @@ export default function VideoPlayer(props) {
               {videoData.vabout}
           </div>
       </section>
+
+      <VidepPlayerSugession Vid = {videoData.Vid}/>
+
   </section>
   );
 }
