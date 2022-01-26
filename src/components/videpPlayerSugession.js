@@ -26,7 +26,9 @@ class WrapSugession extends Component {
     playVideo(data)
     {
         //window.location.reload();
-        this.state.navigate('/play', {state: data})
+        // console.log(data.Vid+" from sugg");
+        this.state.navigate(`/play/${data.Vid}`, {state: data})
+        this.setState({Vid: data.Vid})
     }
     
     render()

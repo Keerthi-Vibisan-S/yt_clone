@@ -18,7 +18,7 @@ function Home()
 
     function playVideo(data)
     {
-        navigate('/play', {state: data})
+        navigate(`/play/${data.Vid}`, {state: data});
     }
 
     return(
