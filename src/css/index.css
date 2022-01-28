@@ -112,3 +112,7 @@
   margin-left: 2em;
   /* border: 2px solid red; */
 }
+
+.my-toast-sub {
+  font-weight: bold;
+}
