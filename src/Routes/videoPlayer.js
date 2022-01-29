@@ -101,6 +101,18 @@ export default function VideoPlayer() {
         }
       }
 
+      //Adding Views Count asSoon as the video starts to play
+      const ViewsCount = async () => {
+        let signIn = JSON.parse(localStorage.getItem("authDetails"));
+        if(signIn != null)
+        {
+          console.log("Seeing Video"+videoData.Vid);
+          const url = `http://localhost:2022/views/add/${videoData.Vid}/${videoData.views}`;
+          let res = await Axios.get(url);
+          //console.log(res.data);
+        }
+      }
+
       let pathz = String(videoData.pathz);
       let pos = pathz.indexOf('/uploads/');
       let src = pathz.slice(pos);
@@ -109,7 +121,7 @@ export default function VideoPlayer() {
       <section className='scroll-view-component video-play-page-display'>
           <section className='videoPlayer-settings'>
               <div>
-                  <video src = {src} autoPlay controls className='img-fluid'/>
+                  <video src = {src} autoPlay controls className='img-fluid' onPlay={() => ViewsCount()}/>
               </div>
               <div className='p-3'>
                 <h5>{videoData.vname}</h5>
