@@ -12,13 +12,15 @@ function Home()
     useEffect( async () => {
         const url = "http://localhost:2022/video/getAll";
         let res = await Axios.get(url);
-
-       setVideos(res.data);
+        console.log(res.data);
+        setVideos(res.data);
     }, [])
 
     function playVideo(data)
     {
-        navigate(`/play/${data.Vid}`, {state: data});
+        let user = JSON.parse(localStorage.getItem("userSno"));
+        console.log({...data, Sno: user.Sno});
+        navigate(`/play/${data.Vid}`, {state: {...data, Sno: user.Sno}});
     }
 
     return(

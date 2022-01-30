@@ -50,11 +50,15 @@ export default function Navbar() {
     }, [auth]);
      
     //Works when user clicks google sign-in button
-    function responseGoogle(response)
+    async function responseGoogle(response)
     {
         //Setting login cred in local storage
         localStorage.setItem('authDetails', JSON.stringify(response.profileObj));
         setAuth(response.profileObj);
+
+        const url = `http://localhost:2022/auth/details/${response.profileObj.email}`;
+        let all = await Axios.get(url);
+        localStorage.setItem("userSno", JSON.stringify(all.data[0]));
     }
 
     //Google Logout

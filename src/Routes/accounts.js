@@ -14,6 +14,7 @@ export default function Accounts() {
         const url = `http://localhost:2022/auth/details/${d.email}`;
         let all = await Axios.get(url);
         setData(all.data[0]);
+        //localStorage.setItem("userSno", JSON.stringify(all.data[0]));
     },[]);
 
     return (

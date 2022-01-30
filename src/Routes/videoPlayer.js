@@ -14,9 +14,12 @@ export default function VideoPlayer() {
     const[existingSub, setexistingSub] = useState(false);
     const [subToast, setSubToast] = useState(false);
     const[unsub, setUnsub] = useState("");
+    const[like, setLike] = useState(false);
+    const[likeCount, setLikeCount] = useState({});
 
     let location = useLocation();
-    const videoData = location.state;
+    var videoData = location.state;
+  
 
     useEffect(() => {
       // console.log("Setting Vid");
@@ -40,8 +43,31 @@ export default function VideoPlayer() {
         {
           setexistingSub(false);
         }
-        console.log(existingSub);
+        
+        //Likes
+        const likeUrl = `http://localhost:2022/media/getLike/${videoData.Sno}/${videoData.Vid}`;
+        let res2 = await Axios.get(likeUrl);
+        if(res2.data == 'yes')
+        {
+          console.log("------- SETTING LIKE ---------- for "+videoData.Vid+ " Sno -- "+videoData.Sno);
+          setLike(true);
+        }
+
+        else
+        {
+          setLike(false);
+        }
       }
+
+      //Likes COunt
+      const conLikeUrl = `http://localhost:2022/media/numLike/${videoData.Vid}`;
+      let res3 = await Axios.get(conLikeUrl);
+      if(res3.data)
+      {
+        //console.log("------ SETTING LIKES NUM ------------");
+        setLikeCount(res3.data[0]);
+      }
+
     }, [videoData, Vid, unsub]);
 
     if(videoData == null)
@@ -113,6 +139,38 @@ export default function VideoPlayer() {
         }
       }
 
+      //Like Adding
+      async function addLike()
+      {
+        let signIn = JSON.parse(localStorage.getItem("authDetails"));
+        if(signIn != null)
+        {
+         const url = `http://localhost:2022/media/setLike/${videoData.Sno}/${videoData.Vid}`;
+          let res = await Axios.get(url);
+          console.log(res.data+" ---------------");
+          if(res.data == 'inserted')
+          {
+            setLike(true);
+          }
+        }
+
+        else
+        {
+          setSubToast(true);
+        }
+      }
+
+      async function remLike()
+      {
+        const url = `http://localhost:2022/media/remove/${videoData.Sno}/${videoData.Vid}`;
+          let res = await Axios.get(url);
+          console.log(res.data+" -- delete--");
+          if(res.data == 'deleted')
+          {
+            setLike(false);
+          }
+      }
+
       let pathz = String(videoData.pathz);
       let pos = pathz.indexOf('/uploads/');
       let src = pathz.slice(pos);
@@ -127,7 +185,7 @@ export default function VideoPlayer() {
                 <h5>{videoData.vname}</h5>
                 <div className='video-utils-align'>
                     <div><p>{videoData.views} views <bs.BsDot/> {videoData.upload_date}</p></div>
-                    <div><fc.FcLikePlaceholder className='h2'/> {videoData.likes} Likes</div>
+                    {like?<div><bs.BsSuitHeartFill onClick={() => remLike()} className='text-danger mx-1 h3'/> {likeCount.likesnum} Likes</div>:<div><bs.BsSuitHeartFill onClick={() => addLike()} className='h3 like-btn mx-1'/> {likeCount.likesnum} Likes</div>}
                 </div>
               </div>
     

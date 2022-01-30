@@ -116,3 +116,14 @@
 .my-toast-sub {
   font-weight: bold;
 }
+
+.like-btn {
+  color: rgb(134, 134, 134);
+}
+
+.like-btn:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all 0.3s;
+  color: #f10000;
+}
