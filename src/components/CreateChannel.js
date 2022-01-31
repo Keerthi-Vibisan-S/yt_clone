@@ -11,7 +11,8 @@ export default function CreateChannel(props)
         Sno: data.Sno,
         cname: "",
         about: "",
-        date: String (d.getUTCDate()+'/'+(d.getUTCMonth()+1)+"/"+d.getUTCFullYear())
+        date: String (d.getUTCDate()+'/'+(d.getUTCMonth()+1)+"/"+d.getUTCFullYear()),
+        cimg: ""
     }
     );
 
@@ -61,6 +62,11 @@ export default function CreateChannel(props)
                                 <div className="mb-3">
                                     <label htmlFor="channelName" className="form-label">Channel Name</label>
                                     <input type="text" value={channel.cname} onChange={(event) => setChannel({...channel, cname: event.target.value})} className="form-control" id="channelName" />
+                                </div>
+
+                                <div className="mb-3">
+                                    <label htmlFor="channelName" className="form-label">Channel Image</label>
+                                    <input type="text" value={channel.cimg} onChange={(event) => setChannel({...channel, cimg: event.target.value})} className="form-control" id="channelName" />
                                 </div>
 
                                 <div class="form-floating mb-3">

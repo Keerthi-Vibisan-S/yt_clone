@@ -27,7 +27,7 @@ export default class NullDataVideo extends Component {
         let pos = pathz.indexOf('/uploads/');
         let src = pathz.slice(pos);
         return (
-            <section className='scroll-view-component video-play-page-display'>
+            <section className='scroll-view-component'>
                 <section className='videoPlayer-settings'>
                     <div>
                         <video src = {src} autoPlay controls className='img-fluid'/>
@@ -41,7 +41,7 @@ export default class NullDataVideo extends Component {
                     </div>
           
                     <div className='border-top p-3 video-utils-align'>
-                      <h4>{videoData.cname}</h4>
+                      <h4><img src={videoData.cimg} alt="" width="32" height="32" className="rounded-circle me-2" />{videoData.cname}</h4>
                       <button className='btn btn-danger fw-bold'>SUBSCRIBE</button>
                     </div>
                     <div className='p-5'>
@@ -49,7 +49,7 @@ export default class NullDataVideo extends Component {
                     </div>
                 </section>
           
-                <VidepPlayerSugession Vid = {this.state.Vid}/>
+                {/* <VidepPlayerSugession Vid = {this.state.Vid}/> */}
           
             </section>
         );

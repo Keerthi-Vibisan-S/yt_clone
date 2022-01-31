@@ -26,8 +26,9 @@ class WrapSugession extends Component {
     playVideo(data)
     {
         //window.location.reload();
-        // console.log(data.Vid+" from sugg");
-        this.state.navigate(`/play/${data.Vid}`, {state: data})
+        let user = JSON.parse(localStorage.getItem("userSno"));
+
+        this.state.navigate(`/play/${data.Vid}`, {state: {...data, Sno: user.Sno}})
         this.setState({Vid: data.Vid})
     }
     
@@ -51,7 +52,7 @@ class WrapSugession extends Component {
                         <div className='p-2'>
                             <h6>{n.vname}</h6>
                             <p>{n.views} views <bs.BsDot /> {n.upload_date}</p>
-                            <h6><gr.GrChannel /> {n.cname}</h6>
+                            <h6><img src={n.cimg} alt="" width="32" height="32" className="rounded-circle me-2" /> {n.cname}</h6>
                         </div>
                     </div>
                   );

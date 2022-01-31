@@ -66,6 +66,7 @@ export default function Navbar() {
     {
         console.log(response);
         localStorage.removeItem('authDetails');
+        localStorage.removeItem('userSno');
         window.location.reload(true);
     }
     
