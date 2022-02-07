@@ -13,13 +13,16 @@ import Accounts from "./Routes/accounts";
 import ChannelDetails from "./Routes/channelDetails";
 import VideoPlayer from "./Routes/videoPlayer";
 import ChannelAllVideo from "./Routes/channelAllVideo";
+import SigninPage from "./Routes/SigninPage";
 
 function Main()
 {
   return(
    
      <Router>
-        <Navbar />
+
+       {localStorage.getItem('authDetails')!=null?
+        <><Navbar />
        <section className='total-display-settings'>
         <Sidebar />
 
@@ -32,8 +35,9 @@ function Main()
           <Route path="/play/:Vid" exact element={<VideoPlayer />} />
           <Route path="/allVideos/:Cno" exact element={<ChannelAllVideo />} />
         </Routes>
-       </section>
-
+       </section></>:<Routes>
+          <Route path="/" exact element={<SigninPage />}/>
+        </Routes>}
      </Router>
     
   );
