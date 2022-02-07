@@ -12,6 +12,7 @@ import Navbar from "./components/navbar";
 import Accounts from "./Routes/accounts";
 import ChannelDetails from "./Routes/channelDetails";
 import VideoPlayer from "./Routes/videoPlayer";
+import ChannelAllVideo from "./Routes/channelAllVideo";
 
 function Main()
 {
@@ -29,6 +30,7 @@ function Main()
           <Route path="/account" exact   element={<Accounts />} />
           <Route path="/channel/:Sno" exact element={<ChannelDetails />} />
           <Route path="/play/:Vid" exact element={<VideoPlayer />} />
+          <Route path="/allVideos/:Cno" exact element={<ChannelAllVideo />} />
         </Routes>
        </section>
 

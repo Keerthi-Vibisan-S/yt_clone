@@ -5,6 +5,7 @@
 .scroll-view-component {
   width: 80%;
   padding: 2em;
+  margin: 0 auto;
 }
 
 .fixed-component {
@@ -126,4 +127,13 @@
   transform: scale(1.2);
   transition: all 0.3s;
   color: #f10000;
+}
+
+.my-no-Link {
+  text-decoration: none;
+  color: black;
+}
+
+.my-no-Link:hover {
+  color: black;
 }

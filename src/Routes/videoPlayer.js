@@ -6,6 +6,7 @@ import VidepPlayerSugession from '../components/videpPlayerSugession';
 import { useEffect, useState } from 'react';
 import NullDataVideo from '../components/NullDataVideo';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function VideoPlayer() {
     
@@ -190,7 +191,7 @@ export default function VideoPlayer() {
               </div>
     
               <div className='border-top p-3 video-utils-align'>
-                <h4><img src={videoData.cimg} alt="" width="32" height="32" className="rounded-circle me-2" /> {videoData.cname}</h4>
+                <Link to={`/allVideos/${videoData.Cno}`} className='h4 my-no-Link' style={{cursor: 'pointer'}}><img src={videoData.cimg} alt="" width="32" height="32" className="rounded-circle me-2" /> {videoData.cname}</Link>
                 {existingSub?<button className='btn btn-outline-danger fw-bold' onClick={() => {unSubscribe()}}>UNSUBSCRIBE</button>:<button className='btn btn-danger fw-bold' onClick={() => {checkSubscribe()}}>SUBSCRIBE</button>}
                 {subToast? <section className='my-toast-sub border-start p-2'>
                 <p>Sign in to Like & Subscribe <ai.AiFillCloseCircle onClick={() => {setSubToast(false)}} className='text-danger' style={{cursor:'pointer'}}/></p>
