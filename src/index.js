@@ -36,7 +36,7 @@ function Main()
           <Route path="/allVideos/:Cno" exact element={<ChannelAllVideo />} />
         </Routes>
        </section></>:<Routes>
-          <Route path="/" exact element={<SigninPage />}/>
+          <Route path="*" element={<SigninPage />}/>
         </Routes>}
      </Router>
     

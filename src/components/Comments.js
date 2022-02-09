@@ -6,16 +6,15 @@ export default function Comments(props) {
 
     const d = new Date();
     const {Vid} = props;
-
     const auth = JSON.parse(localStorage.getItem("userSno"));
     const [comments, setComments] = useState([]);
     const[data, setData] = useState({
       Sno: auth.Sno,
-      Vid: Vid,
+      Vid: "",
       comment: "",
       date: d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear()
     });
-
+    console.log(data);
     //Selecting all comments for a particular video
     useEffect(async () => {
       const url = `http://localhost:2022/comments/get/${Vid}`;
@@ -32,7 +31,23 @@ export default function Comments(props) {
       }
     }, [Vid]);
 
+    //Comments Support
+    const commentSupport = async () => {
+      const url = `http://localhost:2022/comments/get/${Vid}`;
+      let res = await Axios.get(url);
+      // console.log(res.data);
+      if(res.data.length == 0)
+      {
+        setComments([]);
+      }
 
+      else
+      {
+        setComments(res.data);
+      }
+    }
+
+    //Add Comment
     const comment = (e) => {
       e.preventDefault();
       const url = `http://localhost:2022/comments/add`;
@@ -43,6 +58,7 @@ export default function Comments(props) {
         if(data)
         {
           setData({...data, comment:""});
+          commentSupport();
           //console.log("Comment Added -----");
         }
       }).catch( err => {
@@ -61,7 +77,7 @@ export default function Comments(props) {
           <div className='comment-input-div'>
             <form onSubmit={(e) => comment(e)} className='w-100 d-flex justify-content-between align-items-center'>
               <img src={auth.imgurl} alt="userImage" width="32" height="32" className="rounded-circle me-2" />
-              <input type="text" value={data.comment} onChange={(event) => setData({...data, comment: event.target.value})} className='w-100 comment-input' placeholder={`Chat publicly as ${auth.namez}`} />
+              <input type="text" value={data.comment} onChange={(event) => setData({...data, comment: event.target.value, Vid: Vid})} className='w-100 comment-input' placeholder={`Chat publicly as ${auth.namez}`} />
               <button type='submit' className='btn'><ai.AiOutlineSend size={24}/></button>
             </form>
             <div className='clear-fix'></div>
