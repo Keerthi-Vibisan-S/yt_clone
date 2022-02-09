@@ -1,3 +1,7 @@
+.my-bg-gray {
+  background-color: #3f3f3f;
+}
+
 .Signin-Page {
   display: flex;
   flex-direction: column;
@@ -144,4 +148,18 @@
 
 .my-no-Link:hover {
   color: black;
+}
+
+.comment-input {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 0.4em;
+}
+
+.comment-input-div {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  /* border: 2px solid red; */
 }

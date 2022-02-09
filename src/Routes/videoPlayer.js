@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import NullDataVideo from '../components/NullDataVideo';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import Comments from '../components/Comments';
 
 export default function VideoPlayer() {
     
@@ -198,8 +199,11 @@ export default function VideoPlayer() {
               </section>:""}
               </div>
               <div className='p-5'>
+                  <p className='text-muted'>Video Desc</p>
                   {videoData.vabout}
               </div>
+
+              <Comments Vid = {videoData.Vid}/>
           </section>
 
           <VidepPlayerSugession Vid = {passVid}/>
