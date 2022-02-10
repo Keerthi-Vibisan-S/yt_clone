@@ -11,7 +11,6 @@ export default function Comments(props) {
     const auth = JSON.parse(localStorage.getItem("userSno"));
 
     const [comments, setComments] = useState([]);
-    const[showSub, setSub] = useState(false);
     const [replyBox, setReplyBox] = useState(false);
     
     const[data, setData] = useState({
@@ -106,25 +105,19 @@ export default function Comments(props) {
                  </div>
 
                 {replyBox?<ReplyLikeBox setReplyBox = {setReplyBox} Vid={Vid} MCid ={n.Cid}/>:""}
-                  
-                {/* <div>{showSub?<p className='btn fw-bold ms-4' onClick={() => setSub(false)} style={{color: 'black'}}><ai.AiFillCaretUp className='me-2' /> View replies</p>:<p className='btn fw-bold ms-4' onClick={() => setSub(true)} style={{color: 'black'}}><ai.AiFillCaretDown className='me-2' /> View replies</p>}</div>
-                {showSub?<ViewSubComments MCid = {n.Cid}/>:""} */}
 
-              <div className="accordion ms-4" id={`accordionExample${n.Cid}`}>
-                <div className="">
-                  <h2 className="accordion-header" id={`headingOne${n.Cid}`}>
-                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapseOne${n.Cid}`} aria-expanded="true" aria-controls="collapseOne">
-                      View replies
+              <div className="mb-3">
+                  <h2 className="accordion-header" id="headingTwo">
+                    <button className="btn collapsed fw-bold" style={{color: '#065fd4', fontSize: '0.9rem'}} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${n.Cid}`} aria-expanded="false" aria-controls="collapseTwo">
+                    <ai.AiFillCaretDown className='me-2' /> View replies
                     </button>
                   </h2>
-                  <div id={`collapseOne${n.Cid}`} className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent={`#accordionExample${n.Cid}`}>
+                  <div id={`collapse${n.Cid}`} className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div className="accordion-body">
-                    <ViewSubComments MCid = {n.Cid}/>
+                      <ViewSubComments MCid = {n.Cid}/>
                     </div>
                   </div>
                 </div>
-                </div>
-
               </div>
             );
           })}
