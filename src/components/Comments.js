@@ -104,7 +104,7 @@ export default function Comments(props) {
                    <button className='btn fw-bold text-muted' onClick={()=>setReplyBox(true)}>REPLY</button>
                   </div>
 
-                  {replyBox?<ReplyLikeBox setReplyBox = {setReplyBox} />:""}
+                  {replyBox?<ReplyLikeBox setReplyBox = {setReplyBox} Vid={Vid} MCid ={n.Cid}/>:""}
               
               </div>
             );
