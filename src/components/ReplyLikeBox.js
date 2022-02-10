@@ -15,10 +15,18 @@ export default function ReplyLikeBox(props) {
         date: d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear()
     })
 
-    const AddSubComment = (e) => {
+    const AddSubComment = async (e) => {
         e.preventDefault();
-        console.log(data);
+        //console.log(data);
         //PassData to Database
+        const url = `http://localhost:2022/subComment/addSubComment`;
+        let res = await Axios.post(url, data);
+
+        if(res.data == "subcommentAdded")
+        {
+            //console.log("Added");
+            setData({...data, comment: ""});
+        }
     }
 
     return (
