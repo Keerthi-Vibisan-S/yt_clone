@@ -18,7 +18,7 @@ export default function ViewReplies(props) {
     if(show != 0)
     {
     return (
-        <div className="mb-3">
+        <div className="ms-4 mb-3">
             <h2 className="accordion-header" id="headingTwo">
             <p className="btn collapsed fw-bold" style={{color: '#065fd4', fontSize: '0.9rem'}} data-bs-toggle="collapse" data-bs-target={`#collapse${MCid}`} aria-expanded="false" aria-controls="collapseTwo">
             <ai.AiFillCaretDown className='me-2' /> {show == 1 ? "View reply":`View ${show} replies`}

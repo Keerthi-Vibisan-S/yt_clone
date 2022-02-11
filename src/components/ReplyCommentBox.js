@@ -29,7 +29,7 @@ export default function ReplyCommentBox(props) {
     }
 
     return (
-        <div className='ms-4 my-2'>
+        <div className='ms-4 mb-2'>
             <form onSubmit={(e) => AddSubComment(e)} className='w-100 d-flex justify-content-between align-items-center'>
                 <img src={auth.imgurl} alt="userImage" width="32" height="32" className="rounded-circle me-2" />
                 <input type="text" value={data.comment} onChange={(e) => setData({...data, comment: e.target.value, Vid: Vid, MCid: MCid})} className='w-100 comment-input' placeholder={`Reply publicly as ${auth.namez}`} />
