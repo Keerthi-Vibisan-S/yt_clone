@@ -115,7 +115,7 @@ export default function CommentsLike(props) {
 
     return (
     <div>
-        {like?<p className='btn fw-bold' style={{fontSize: '0.8rem'}} onClick={() => DelLike()}><ai.AiFillHeart className='text-danger' size={24}/> {numLikes} Loves</p>:<p className='btn fw-bold' style={{fontSize: '0.8rem'}} onClick={() => AddLike()}><ai.AiOutlineHeart size={24}/> Loves</p>}
+        {like?<p className='btn fw-bold' style={{fontSize: '0.8rem'}} onClick={() => DelLike()}><ai.AiFillHeart className='text-danger' size={24}/> {numLikes} Loves</p>:<p className='btn fw-bold' style={{fontSize: '0.8rem'}} onClick={() => AddLike()}><ai.AiOutlineHeart size={24}/>{numLikes} Loves</p>}
     </div>
   )
 }
