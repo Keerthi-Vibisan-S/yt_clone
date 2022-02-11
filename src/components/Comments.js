@@ -3,6 +3,7 @@ import * as ai from 'react-icons/ai';
 import Axios from 'axios';
 import ReplyLikeBox from './ReplyLikeBox';
 import ViewSubComments from './ViewSubComments';
+import ViewReplies from './ViewReplies';
 
 export default function Comments(props) {
 
@@ -106,18 +107,10 @@ export default function Comments(props) {
 
                 {replyBox?<ReplyLikeBox setReplyBox = {setReplyBox} Vid={Vid} MCid ={n.Cid}/>:""}
 
-              <div className="mb-3">
-                  <h2 className="accordion-header" id="headingTwo">
-                    <button className="btn collapsed fw-bold" style={{color: '#065fd4', fontSize: '0.9rem'}} type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${n.Cid}`} aria-expanded="false" aria-controls="collapseTwo">
-                    <ai.AiFillCaretDown className='me-2' /> View replies
-                    </button>
-                  </h2>
-                  <div id={`collapse${n.Cid}`} className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div className="accordion-body">
-                      <ViewSubComments MCid = {n.Cid}/>
-                    </div>
-                  </div>
-                </div>
+                <ViewReplies MCid = {n.Cid}/>
+                
+
+               
               </div>
             );
           })}
