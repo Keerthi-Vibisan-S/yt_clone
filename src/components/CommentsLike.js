@@ -8,6 +8,24 @@ export default function CommentsLike(props) {
     const user = JSON.parse(localStorage.getItem("userSno")); 
     const [like, setLike] = useState(false);
     const abort = new AbortController();
+    const [numLikes, setNumLikes] = useState("");
+
+    useEffect(() => {
+        const url = `http://localhost:2022/subComment/getNumber/${MCid}`;
+        let res = Axios.get(url);
+
+        res.then(data => {
+           if(data.data[0].numLikes != 0)
+           {
+             setNumLikes(data.data[0].numLikes);
+           }
+
+           else
+           {
+               setNumLikes("");
+           }
+        })
+    }, [MCid]);
 
     useEffect(() => {
         const url = `http://localhost:2022/subComment/checkLike/${MCid}/${user.Sno}`;
@@ -49,6 +67,22 @@ export default function CommentsLike(props) {
         }).catch(err => {
             console.log(err);
         }) 
+
+        //For 👍 Likes
+        const url2 = `http://localhost:2022/subComment/getNumber/${MCid}`;
+        let res2 = Axios.get(url2);
+
+        res2.then(data => {
+           if(data.data[0].numLikes != 0)
+           {
+             setNumLikes(data.data[0].numLikes);
+           }
+
+           else
+           {
+               setNumLikes("");
+           }
+        })
     }
 
     async function AddLike()
@@ -81,7 +115,7 @@ export default function CommentsLike(props) {
 
     return (
     <div>
-        {like?<p className='btn' onClick={() => DelLike()}><ai.AiFillHeart className='text-danger' size={24}/> Loves</p>:<p className='btn' onClick={() => AddLike()}><ai.AiOutlineHeart size={24}/> Loves</p>}
+        {like?<p className='btn fw-bold' style={{fontSize: '0.8rem'}} onClick={() => DelLike()}><ai.AiFillHeart className='text-danger' size={24}/> {numLikes} Loves</p>:<p className='btn fw-bold' style={{fontSize: '0.8rem'}} onClick={() => AddLike()}><ai.AiOutlineHeart size={24}/> Loves</p>}
     </div>
   )
 }

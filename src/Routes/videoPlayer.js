@@ -51,7 +51,7 @@ export default function VideoPlayer() {
         let res2 = await Axios.get(likeUrl);
         if(res2.data == 'yes')
         {
-          console.log("------- SETTING LIKE ---------- for "+videoData.Vid+ " Sno -- "+videoData.Sno);
+          //console.log("------- SETTING LIKE ---------- for "+videoData.Vid+ " Sno -- "+videoData.Sno);
           setLike(true);
         }
 
@@ -129,6 +129,19 @@ export default function VideoPlayer() {
         }
       }
 
+      //LikeSupport
+      async function CheckLike()
+      {
+      //Likes COunt
+      const conLikeUrl = `http://localhost:2022/media/numLike/${videoData.Vid}`;
+      let res3 = await Axios.get(conLikeUrl);
+      if(res3.data)
+      {
+        //console.log("------ SETTING LIKES NUM ------------");
+        setLikeCount(res3.data[0]);
+      }
+      }
+
       //Adding Views Count asSoon as the video starts to play
       const ViewsCount = async () => {
         let signIn = JSON.parse(localStorage.getItem("authDetails"));
@@ -153,6 +166,7 @@ export default function VideoPlayer() {
           if(res.data == 'inserted')
           {
             setLike(true);
+            CheckLike();
           }
         }
 
@@ -170,6 +184,7 @@ export default function VideoPlayer() {
           if(res.data == 'deleted')
           {
             setLike(false);
+            CheckLike();
           }
       }
 
@@ -187,7 +202,7 @@ export default function VideoPlayer() {
                 <h5>{videoData.vname}</h5>
                 <div className='video-utils-align'>
                     <div><p>{videoData.views} views <bs.BsDot/> {videoData.upload_date}</p></div>
-                    {like?<div><bs.BsSuitHeartFill onClick={() => remLike()} className='text-danger mx-1 h3'/> {likeCount.likesnum} Likes</div>:<div><bs.BsSuitHeartFill onClick={() => addLike()} className='h3 like-btn mx-1'/> {likeCount.likesnum} Likes</div>}
+                    {like?<div className='fw-bold' style={{fontSize: '0.9rem'}}><bs.BsSuitHeartFill onClick={() => remLike()} className='text-danger like-btn mx-1 h3'/> {likeCount.likesnum} Loves</div>:<div className='fw-bold' style={{fontSize: '0.9rem'}}><bs.BsSuitHeart onClick={() => addLike()} className='h3 like-btn mx-1'/> {likeCount.likesnum} Loves</div>}
                 </div>
               </div>
     
