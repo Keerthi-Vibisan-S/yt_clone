@@ -21,7 +21,7 @@ export default function ViewSubComments(props) {
     <div className='ms-1'>
         {data.map(n => {
             return(
-                <div key={n.sub_id} className='my-2'>
+                <div key={n.sub_id} className='mb-2'>
                     <div className='d-flex justify-content-start align-items-center'>
                     <img src={n.imgurl} alt="userImage" width="32" height="32" className="rounded-circle me-2" />
                     <p>{n.namez} <span className='text-muted ms-2'>{n.datez}</span></p>

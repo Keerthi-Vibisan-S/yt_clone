@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as ai from 'react-icons/ai';
 import Axios from 'axios';
 
-export default function ReplyLikeBox(props) {
+export default function ReplyCommentBox(props) {
     
     const {setReplyBox, Vid, MCid} = props;
     const auth = JSON.parse(localStorage.getItem("userSno"));
@@ -17,7 +17,6 @@ export default function ReplyLikeBox(props) {
 
     const AddSubComment = async (e) => {
         e.preventDefault();
-        //console.log(data);
         //PassData to Database
         const url = `http://localhost:2022/subComment/addSubComment`;
         let res = await Axios.post(url, data);
