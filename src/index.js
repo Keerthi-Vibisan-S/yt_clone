@@ -14,6 +14,7 @@ import ChannelDetails from "./Routes/channelDetails";
 import VideoPlayer from "./Routes/videoPlayer";
 import ChannelAllVideo from "./Routes/channelAllVideo";
 import SigninPage from "./Routes/SigninPage";
+import "./css/assest.css";
 
 function Main()
 {
