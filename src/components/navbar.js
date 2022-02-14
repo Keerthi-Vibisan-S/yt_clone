@@ -93,10 +93,10 @@ export default function Navbar() {
           </div>
       
           <nav className="header-nav ms-auto">
-            <ul className="d-flex align-items-center">
+            <div className="d-flex align-items-center">
       
               
-              {session?<li className="nav-item dropdown pe-3">
+              {session?<div className="nav-item dropdown pe-3">
       
                 <div className="nav-link nav-profile d-flex align-items-center pe-0 my-cursor-point" data-bs-toggle="dropdown">
                   <img src={auth.imageUrl} alt="Profile" className="rounded-circle"/>
@@ -121,8 +121,8 @@ export default function Navbar() {
                     <hr className="dropdown-divider"/>
                   </li>
       
-                  <li>
-                    <li className='dropdown-item d-flex align-items-center'>
+                 
+                  <li className='dropdown-item d-flex align-items-center'>
                             <GoogleLogout
                             clientId="852762241490-gr45nghc45rkvjp5bs3uqvr4q0qkp80h.apps.googleusercontent.com"
                             render={renderProps => (
@@ -132,10 +132,9 @@ export default function Navbar() {
                             onLogoutSuccess={logout}
                             >
                             </GoogleLogout>
-                        </li>
-                  </li>
+                    </li>
                 </ul>
-              </li>:<div><GoogleLogin
+              </div>:<div><GoogleLogin
                             clientId="852762241490-gr45nghc45rkvjp5bs3uqvr4q0qkp80h.apps.googleusercontent.com"
                             render={renderProps => (
                                 <button className='btn btn-light outline' onClick={renderProps.onClick} disabled={renderProps.disabled}><fa.FaGoogle /> Sign in</button>
@@ -145,7 +144,7 @@ export default function Navbar() {
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}/></div>}
       
-            </ul>
+            </div>
           </nav>
       
         </header>
