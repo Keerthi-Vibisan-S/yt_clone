@@ -324,3 +324,19 @@
   display: none;
 }
 /*TODO: SUBSCRIPTIONS Page*/
+
+/*!Accounts Page ++++*/
+.Accounts-pg {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (max-width: 650px) {
+  .Accounts-pg {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
+}

@@ -18,7 +18,7 @@ export default function ChannelDetails() {
     }, []);
     console.log("Rendering --- "+Sno);
   return(
-    <section className='scroll-view-component'>
+    <section className='scroll-view-component my-mob-mt'>
         <div>
             <p className='display-5'>My Channel</p>
             <p><strong>Name: </strong>{channel.cname}</p>

@@ -25,7 +25,7 @@ export default function ChannelAllVideo() {
     }
 
   return (
-      <section className='scroll-view-component'>
+      <section className='scroll-view-component my-mob-mt'>
           <div className='border-bottom'>
               <p className='text-muted'>Channel</p>
             <p className='display-6 fw-bold'>{videos.length == 0? "":videos[0].cname}</p>
