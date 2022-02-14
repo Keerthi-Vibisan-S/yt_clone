@@ -15,7 +15,7 @@
 }
 
 .scroll-view-component {
-  width: 80%;
+  width: 100%;
   padding: 2em;
   margin: 0 auto;
 }
@@ -82,23 +82,6 @@
   box-shadow: 4px 4px 4px 5px lightgray;
 }
 
-.video-page-settings {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.videoPlayer-settings {
-  width: 75%;
-  /* border: 2px solid red; */
-}
-
-.video-utils-align {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .video-uploaded-display {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr 2fr;
@@ -140,6 +123,25 @@
 
 /*!Home Video Display --------------------*/
 
+/*TODO: VIDEO PLAYER PAGE SETTINGS +++++++*/
+
+.video-page-settings {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.videoPlayer-settings {
+  width: 65%;
+  /* border: 2px solid red; */
+}
+
+.video-utils-align {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .video-play-page-display {
   display: flex;
   justify-content: space-between;
@@ -147,9 +149,46 @@
 }
 
 .sugessions-side {
-  width: 25%;
+  width: 35%;
   margin-left: 2em;
   /* border: 2px solid red; */
+}
+
+.my-videoplayer-p5 {
+  padding: 0 0em 0 1em;
+}
+
+@media (max-width: 750px) {
+  .sugessions-side {
+    display: none;
+  }
+
+  .videoPlayer-settings {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .videoPlayer-settings {
+    margin-top: 8vmin;
+    width: 100%;
+  }
+
+  .video-utils-align {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .my-videoplayer-p5 {
+    padding: 0;
+  }
+
+  .sub-btn {
+    margin-top: 0.6em;
+  }
 }
 
 .my-toast-sub {
@@ -186,6 +225,7 @@
 .my-cursor-point {
   cursor: pointer;
 }
+/*TODO: VIDEO PLAYER PAGE SETTINGS ---------*/
 
 /*!SideBar Display Start*/
 

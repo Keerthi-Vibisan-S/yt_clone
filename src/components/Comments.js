@@ -75,7 +75,7 @@ export default function Comments(props) {
     } 
 
   return (
-      <section className='px-5 py-3 border-top'>
+      <section className='my-videoplayer-p5 py-3 border-top'>
           <p className='text-muted'>Discussion</p>
 
           <div className='comment-input-div'>
