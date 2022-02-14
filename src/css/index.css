@@ -106,6 +106,7 @@
   /* border: 2px solid red; */
 }
 
+/*!Home Video Display +++++++++++++++++++*/
 .home-video-display {
   /* border: 2px solid red; */
   display: grid;
@@ -114,6 +115,30 @@
   padding: 1em;
   position: relative;
 }
+
+@media (max-width: 1200px) {
+  .home-video-display {
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-gap: 2em;
+    padding: 1em;
+    position: relative;
+  }
+}
+
+@media (max-width: 800px) {
+  .home-video-display {
+    margin-top: 8vmin;
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-gap: 2em;
+    padding: 1em;
+    position: relative;
+  }
+}
+
+/*!Home Video Display --------------------*/
 
 .video-play-page-display {
   display: flex;
