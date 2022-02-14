@@ -70,33 +70,30 @@ export default function Navbar() {
         window.location.reload(true);
     }
 
+    function SidebarToggle()
+    {
+      document.getElementById("bodyToggle").classList.toggle("toggle-sidebar");
+    }
+
     return(
         
-        <header id="header" className="header fixed-top d-flex align-items-center">
+        <header id="header" className="header fixed-top d-flex align-items-center justify-content-between">
       
-            <div className="d-flex align-items-center justify-content-between">
-                <i className='toggle-sidebar-btn'><fa.FaBars className=''/></i>
-                <div className="logo d-flex align-items-center">
-                <img src="/images/logoFull.png" className='my-cursor-point img-fluid' alt=""/>
-                {/* <span className="d-none d-lg-block text-danger">YouTube</span> */}
-                </div>
-            </div>
+          <i className='toggle-sidebar-btn my-nav-imagebi bi-list toggle-sidebar-btn' onClick={() => SidebarToggle()}></i>
+            
+           
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogolook.net%2Fwp-content%2Fuploads%2F2021%2F06%2FYoutube-Logo.png&f=1&nofb=1" className='my-cursor-point img-fluid mx-3 my-nav-logo' alt=""/>
+            
       
           <div className="search-bar w-100">
-            <form className="search-form d-flex align-items-center">
+            <form className="search-form d-flex align-items-center" style={{width: '60%', margin: '0 auto'}}>
               <input type="text" name="query" placeholder="Search" title="Enter search keyword"/>
-              <button type="submit" title="Search"><ai.AiOutlineSearch/></button>
+              <button type="submit" title="Search"><i className="bi bi-search text-muted"></i></button>
             </form>
           </div>
       
           <nav className="header-nav ms-auto">
             <ul className="d-flex align-items-center">
-      
-              {/* <li className="nav-item d-block d-lg-none">
-                <a className="nav-link nav-icon search-bar-toggle " href="#">
-                  <i className="bi bi-search"></i>
-                </a>
-              </li> */}
       
               
               {session?<li className="nav-item dropdown pe-3">

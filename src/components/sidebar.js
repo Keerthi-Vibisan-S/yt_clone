@@ -9,20 +9,38 @@ import session from './navbar';
 export default function Sidebar()
 {
     console.log(session);
+
     return(
-        <section className='d-flex flex-column flex-shrink-0 bg-light fixed-component height-100 bg-light'>
-            <ul className='nav nav-pills nav-flush flex-column mb-auto text-center'>
+        <aside id="sidebar" className="sidebar search-bar-show">
 
-                {SidebarData.map((item, index) => {
+        <ul className="sidebar-nav" id="sidebar-nav">
+
+          {SidebarData.map((item, index) => {
                     return(
-                        <li key={index} className='my-nav-item'>
-                            <NavLink to={item.path}  exact='true' className={(navData) => navData.isActive?"my-sidebar-active my-nav-link-hover":'border-bottom yt-red my-nav-link-hover'}><h3>{item.icon}</h3></NavLink>
+                        <li className="nav-item my-nav-hover py-2 px-3 my-1" key={index}>
+                            <NavLink to={item.path} exact='true' className={(navData) => navData.isActive?"text-danger":"sidebar-navLink"}><span className='sidebar-icon'>{item.icon}</span><span className='my-Sidebar-text'>{item.name}</span></NavLink>
                         </li>
+                        
                     );
-                })}
+            })}
+        </ul>
+        </aside>
+    
+    )
+    // return(
+    //     <section className='d-flex flex-column flex-shrink-0 bg-light fixed-component height-100 bg-light'>
+    //         <ul className='nav nav-pills nav-flush flex-column mb-auto text-center'>
 
-            </ul>
-        </section>
-    );
+                // {SidebarData.map((item, index) => {
+                //     return(
+                //         <li key={index} className='my-nav-item'>
+                //             <NavLink to={item.path}  exact='true' className={(navData) => navData.isActive?"my-sidebar-active my-nav-link-hover":'border-bottom yt-red my-nav-link-hover'}><h3>{item.icon}</h3></NavLink>
+                //         </li>
+                //     );
+                // })}
+
+    //         </ul>
+    //     </section>
+    // );
 }
 

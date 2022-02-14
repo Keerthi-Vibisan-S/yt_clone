@@ -69,16 +69,15 @@
 
 /*Video Settings*/
 .video-card {
-  width: 110%;
   /* border: 2px solid red; */
-  padding: 0.4em;
+  padding: 0.8em;
   color: black;
   cursor: pointer;
   /* border: 1px solid grey; */
 }
 
 .video-card:hover {
-  transform: scale(1.1);
+  transform: scale(0.9);
   transition: all 0.5s;
   box-shadow: 4px 4px 4px 5px lightgray;
 }
@@ -111,7 +110,9 @@
   /* border: 2px solid red; */
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
-  grid-gap: 5em;
+  grid-gap: 2em;
+  padding: 1em;
+  position: relative;
 }
 
 .video-play-page-display {
@@ -160,3 +161,69 @@
 .my-cursor-point {
   cursor: pointer;
 }
+
+/*!SideBar Display Start*/
+
+.my-Sidebar-text {
+  margin-left: 0.8em;
+  color: black;
+  font-size: 1.2rem;
+}
+
+.sidebar-icon {
+  font-size: 28px;
+}
+.sidebar-icon:hover {
+  color: black;
+}
+
+.sidebar-navLink,
+.sidebar-navLink:hover {
+  color: black;
+}
+
+.my-nav-hover {
+  padding: 0.4em;
+}
+
+.my-nav-hover:hover,
+.my-active-sidebar {
+  color: black;
+  transition: all 0.2s;
+  background-color: rgb(241, 241, 241);
+}
+/*?Sidebar Display End*/
+
+/*!Nav Image Start ++++++++*/
+
+.my-nav-logo {
+  width: 6%;
+  /* padding: 4em; */
+}
+
+@media (max-width: 2456px) {
+  .my-nav-logo {
+    width: 8%;
+    /* padding: 4em; */
+  }
+}
+
+@media (max-width: 1800px) {
+  .my-nav-logo {
+    width: 10%;
+  }
+}
+
+@media (max-width: 1450px) {
+  .my-nav-logo {
+    width: 12%;
+  }
+}
+
+@media (max-width: 600px) {
+  .my-nav-logo {
+    width: 30%;
+  }
+}
+
+/*!Nav Image END ----------*/

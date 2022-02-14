@@ -3,7 +3,7 @@ import reactDom from "react-dom";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./Routes/home";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 import Sidebar from "./components/sidebar";
 import Subscriptions from "./Routes/subscriptions";
 import Liked from "./Routes/liked";
@@ -15,6 +15,7 @@ import VideoPlayer from "./Routes/videoPlayer";
 import ChannelAllVideo from "./Routes/channelAllVideo";
 import SigninPage from "./Routes/SigninPage";
 import "./css/assest.css";
+import "./css/biIcons.css";
 
 function Main()
 {

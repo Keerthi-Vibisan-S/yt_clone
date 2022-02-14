@@ -341,7 +341,7 @@ h6 {
 @media (min-width: 1200px) {
   .logo {
     margin-right: 0em;
-    /* border: 2px solid red; */
+    border: 2px solid red;
     margin-left: 0.4em;
     width: fit-content;
   }
