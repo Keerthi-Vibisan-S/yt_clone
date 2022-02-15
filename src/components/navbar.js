@@ -149,52 +149,5 @@ export default function Navbar() {
       
         </header>
     )
-    
-    {/* return (
-        <nav className="navbar navbar-expand-md navbar-light fixed-top bg-light shadow">
-            <div className="container-fluid">
-                <img src='/images/logoFull.png' className='img-fluid logoFull' />
-                <form className="d-flex" style={{width: "40%"}}>
-                    <input className="form-control" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-muted" type="submit"><h4><ai.AiOutlineSearch /></h4></button>
-                </form>
-
-                {session?<div className="dropdown me-5">
-                        <a href="#" className="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src={auth.imageUrl} alt="" width="32" height="32" className="rounded-circle me-2" />
-                            <strong>{auth.name}</strong>
-                        </a>
-                        <ul className="dropdown-menu dropdown-menu-light shadow" aria-labelledby="dropdownUser1">
-
-                            <li className='border-bottom mb-2'>
-                                <Link to="/account" className='nav-link text-dark h6'>Your Account</Link>
-                            </li>
-
-                            <li className='mb-2'>
-                            <GoogleLogout
-                            clientId="852762241490-gr45nghc45rkvjp5bs3uqvr4q0qkp80h.apps.googleusercontent.com"
-                            render={renderProps => (
-                                <button className='btn text-dark' onClick={renderProps.onClick} disabled={renderProps.disabled}>Logout</button>
-                              )}
-                            buttonText="Logout"
-                            onLogoutSuccess={logout}
-                            >
-                            </GoogleLogout>
-                            </li>
-
-                        </ul>
-                    </div>:<div><GoogleLogin
-                            clientId="852762241490-gr45nghc45rkvjp5bs3uqvr4q0qkp80h.apps.googleusercontent.com"
-                            render={renderProps => (
-                                <button className='btn btn-light outline' onClick={renderProps.onClick} disabled={renderProps.disabled}><fa.FaGoogle /> Sign in</button>
-                              )}
-                            buttonText="Sign in"
-                            onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
-                            cookiePolicy={'single_host_origin'}
-                        /></div>}
-             </div>
-        </nav>
-    ) */}
 }
 
