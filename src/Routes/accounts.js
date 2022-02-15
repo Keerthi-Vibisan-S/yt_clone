@@ -18,8 +18,8 @@ export default function Accounts() {
     },[]);
 
     return (
-        <section className='scroll-view-component'>
-            <section className='video-page-settings'>
+        <section className='scroll-view-component my-mob-mt'>
+            <section className='Accounts-pg'>
                 <div style={{alignItems: 'start'}}>    
                     <h2 className='mb-3 pb-2 border-bottom'>Account Settings</h2>
                     <p><strong>Name:</strong> {data.namez}</p>
@@ -29,7 +29,7 @@ export default function Accounts() {
                 </div>
 
                 <div>
-                <img src={data.imgurl} alt="" width="200" height="200" className="rounded-circle" />
+                    <img src={data.imgurl} alt="" width="200" height="200" className="rounded-circle" />
                 </div>
             </section>
 
