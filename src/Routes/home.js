@@ -24,7 +24,7 @@ function Home()
     }
 
     return(
-        <section id="" class="">
+        <section id="" className="">
 
             <div className='home-video-display'>
                             {videos.map((n) => {
