@@ -9,35 +9,21 @@ export default function SigninPage() {
 
     async function responseGoogle(response)
     {
-        //Setting login cred in local storage
-        //localStorage.setItem('authDetails', JSON.stringify(response.profileObj));
         setAuth(response.profileObj);
-
-        const url = `http://localhost:2022/auth/details/${response.profileObj.email}`;
-        let all = await Axios.get(url);
-        //localStorage.setItem("userSno", JSON.stringify(all.data[0]));
 
         //TODO: Sending googles token to backend for verification
         const url2 = 'http://localhost:2023/getToken';
-        let res = await Axios.post(url2, {token: response.tokenId});
+        let res = await Axios.post(url2, {token: response.tokenId, email: response.profileObj.email});
         
         if(res.data)
         {
-          if(response.profileObj.email == res.data.email && res.data.emailVerify)
-          {
-            //! HERE WE MUST CHECK with our database and register
-
-            localStorage.setItem('authDetails', JSON.stringify(response.profileObj));
-            localStorage.setItem("userSno", JSON.stringify(all.data[0]));
-            window.location.reload();
-          }
-
-          else
-          {
-            setDanger(true);
-          }
+          const url = `http://localhost:2022/auth/details/${response.profileObj.email}`;
+          let all = await Axios.get(url);
+          localStorage.setItem('authToken', JSON.stringify(res.data));
+          localStorage.setItem('authDetails', JSON.stringify(response.profileObj));
+          localStorage.setItem("userSno", JSON.stringify(all.data[0]));
+          window.location.reload();
         }
-
     }
 
   return (
