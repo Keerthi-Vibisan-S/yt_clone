@@ -13,6 +13,7 @@ export default class Subscriptions extends Component {
 
     async componentDidMount()
     {
+        // Axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(localStorage.getItem('authToken'))}`;
         const url = `http://localhost:2022/media/getSubscriptions/${this.state.userData.Sno}`;
 
         let res = await Axios.get(url);

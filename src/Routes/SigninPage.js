@@ -10,6 +10,7 @@ export default function SigninPage() {
     async function responseGoogle(response)
     {
         setAuth(response.profileObj);
+        console.log(response);
 
         //TODO: Sending googles token to backend for verification
         const url2 = 'http://localhost:2023/getToken';

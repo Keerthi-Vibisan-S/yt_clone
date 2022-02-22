@@ -16,9 +16,12 @@ import ChannelAllVideo from "./Routes/channelAllVideo";
 import SigninPage from "./Routes/SigninPage";
 import "./css/assest.css";
 import "./css/biIcons.css";
-
+import Axios from 'axios';
 function Main()
 {
+  //TODO: This Single line will add this authentication header to all the requests sent
+  Axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(localStorage.getItem('authToken'))}`;
+
   //!UI-Design branch
   return(
    

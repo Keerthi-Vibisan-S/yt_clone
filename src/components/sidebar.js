@@ -15,6 +15,7 @@ export default function Sidebar()
         //alert("Hello");
         localStorage.removeItem('authDetails');
         localStorage.removeItem('userSno');
+        localStorage.removeItem('authToken')
         window.location.reload(true);
         }
 
