@@ -80,7 +80,7 @@ export default function Navbar() {
         
         <header id="header" className="header fixed-top d-flex align-items-center justify-content-between">
       
-          <i className='toggle-sidebar-btn my-nav-imagebi bi-list toggle-sidebar-btn' onClick={() => SidebarToggle()}></i>
+          <i className='my-nav-imagebi bi-list toggle-sidebar-btn' onClick={() => SidebarToggle()}></i>
             
            
           <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogolook.net%2Fwp-content%2Fuploads%2F2021%2F06%2FYoutube-Logo.png&f=1&nofb=1" className='my-cursor-point img-fluid mx-3 my-nav-logo' alt=""/>
