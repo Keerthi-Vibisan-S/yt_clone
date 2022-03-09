@@ -19,11 +19,34 @@ export default function ViewSubComments(props) {
         }
     }, [props, MCid]);
 
+    async function subCommentsSupport()
+    {
+        const url = `http://localhost:2022/subComment/getSubcomment/${MCid}`;
+        let res = await Axios.get(url);
+    
+        if(res.data)
+        {
+            console.log(res.data);
+            setData(res.data);
+        }
+    }
+
+    async function DeleteSubComment(Sub_id, Sno)
+    {
+        const url =  `http://localhost:2022/editComments/deleteSubcom/${Sub_id}/${Sno}`;
+
+        let res = await Axios.delete(url);
+        if(res.data == "deleted")
+        {
+            subCommentsSupport();   
+        }
+    }
+
     return (
     <div className='ms-1'>
         {data.map(n => {
             return(
-                <div key={n.sub_id} className='mb-2'>
+                <div key={n.Sub_id} className='mb-2'>
                     <div className='d-flex justify-content-start align-items-center'>
                     <img src={n.imgurl} alt="userImage" width="32" height="32" className="rounded-circle me-2" />
                     <p>{n.namez} <span className='text-muted ms-2'>{n.datez}</span></p>
@@ -34,7 +57,7 @@ export default function ViewSubComments(props) {
                   </button>
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     {/* <li><a className="dropdown-item" href="#">Edit</a></li> */}
-                    <li><a className="dropdown-item" href="#">Delete</a></li>
+                    <li onClick={() => DeleteSubComment(n.Sub_id, auth.Sno)}><div className="dropdown-item">Delete</div></li>
                   </ul>
                 </div>:""}</p>
                 </div>
