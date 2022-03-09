@@ -75,6 +75,17 @@ export default function Comments(props) {
 
     } 
 
+    async function DeleteComment(Cid, Sno)
+    {
+     const url = `http://localhost:2022/editComments/comment/${Cid}/${Sno}`;
+     let res = await Axios.delete(url);
+
+     if(res.data == "deleted")
+     {
+      commentSupport();
+     }
+    }
+
   return (
       <section className='my-videoplayer-p5 py-3 border-top'>
           <p className='text-muted'>Discussion</p>
@@ -101,8 +112,8 @@ export default function Comments(props) {
                     <bs.BsThreeDotsVertical />
                   </button>
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a className="dropdown-item" href="#">Edit</a></li>
-                    <li><a className="dropdown-item" href="#">Delete</a></li>
+                    {/* <li><a className="dropdown-item" href="#">Edit</a></li> */}
+                    <li onClick={() => DeleteComment(n.Cid, auth.Sno)}><div className="dropdown-item" href="#" style={{cursor: 'pointer'}}>Delete</div></li>
                   </ul>
                 </div>:""}</p>
                 

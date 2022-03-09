@@ -33,7 +33,7 @@ export default function ViewSubComments(props) {
                     <bs.BsThreeDotsVertical />
                   </button>
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a className="dropdown-item" href="#">Edit</a></li>
+                    {/* <li><a className="dropdown-item" href="#">Edit</a></li> */}
                     <li><a className="dropdown-item" href="#">Delete</a></li>
                   </ul>
                 </div>:""}</p>
