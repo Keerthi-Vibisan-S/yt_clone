@@ -4,6 +4,7 @@ import * as ai from 'react-icons/ai';
 import * as fa from 'react-icons/fa';
 import {GoogleLogin, GoogleLogout} from 'react-google-login';
 import {Link} from 'react-router-dom';
+import NavSearch from './navSearch';
 
 export default function Navbar() {
 
@@ -86,12 +87,7 @@ export default function Navbar() {
           <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogolook.net%2Fwp-content%2Fuploads%2F2021%2F06%2FYoutube-Logo.png&f=1&nofb=1" className='my-cursor-point img-fluid mx-3 my-nav-logo' alt=""/>
             
       
-          <div className="search-bar w-100">
-            <form className="search-form d-flex align-items-center" style={{width: '60%', margin: '0 auto'}}>
-              <input type="text" name="query" placeholder="Search" title="Enter search keyword"/>
-              <button type="submit" title="Search"><i className="bi bi-search text-muted"></i></button>
-            </form>
-          </div>
+         <NavSearch />
       
           <nav className="header-nav ms-auto">
             <div className="d-flex align-items-center">

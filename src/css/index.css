@@ -340,3 +340,21 @@
     flex-direction: column;
   }
 }
+
+/*! Search Box*/
+.searchbox {
+  position: absolute;
+  background-color: white;
+  color: black;
+  padding: 0.8em;
+  left: 20%;
+}
+
+.searchHover {
+  cursor: pointer;
+  padding: 0.4em;
+}
+
+.searchHover:hover {
+  background-color: lightgray;
+}
