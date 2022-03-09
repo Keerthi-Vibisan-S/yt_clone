@@ -39,6 +39,7 @@ export default function NavSearch() {
 
     function playVideo(data)
     {
+        setBox(false);
         let user = JSON.parse(localStorage.getItem("userSno"));
         console.log({...data, Sno: user.Sno});
         navigate(`/play/${data.Vid}`, {state: {...data, Sno: user.Sno}});
