@@ -4,42 +4,71 @@ import * as bs from 'react-icons/bs';
 
 export default function ViewSubComments(props) {
     
+    //! Using Abort Controller
+    let abortController = new AbortController();
+
+
     const auth = JSON.parse(localStorage.getItem("userSno"));
     const {MCid} = props;
     const [data, setData] = useState([]);
+
+
+    //! Abort Cleanup
+    useEffect(() => {
+        return(
+            abortController.abort()
+        )
+    });
+
+
     //Getting All subcomments
-    useEffect(async () => {
+    useEffect(() => {
         const url = `http://localhost:2022/subComment/getSubcomment/${MCid}`;
-        let res = await Axios.get(url);
-    
+        let res = Axios.get(url);
+        
+        res.then(res => { 
         if(res.data)
         {
             console.log(res.data);
             setData(res.data);
         }
+    }).catch(err => {
+        console.log(err);
+    })
     }, [props, MCid]);
 
-    async function subCommentsSupport()
+    function subCommentsSupport()
     {
         const url = `http://localhost:2022/subComment/getSubcomment/${MCid}`;
-        let res = await Axios.get(url);
-    
-        if(res.data)
-        {
-            console.log(res.data);
-            setData(res.data);
-        }
+        let res = Axios.get(url);
+        
+        res.then(res => {
+
+            if(res.data)
+            {
+                console.log(res.data);
+                setData(res.data);
+            }
+        }).catch(err => {
+            console.log(err);
+        })
     }
 
-    async function DeleteSubComment(Sub_id, Sno)
+    function DeleteSubComment(Sub_id, Sno)
     {
         const url =  `http://localhost:2022/editComments/deleteSubcom/${Sub_id}/${Sno}`;
 
-        let res = await Axios.delete(url);
-        if(res.data == "deleted")
-        {
-            subCommentsSupport();   
-        }
+        let res = Axios.delete(url);
+
+        res.then(res => {
+
+            if(res.data == "deleted")
+            {
+                subCommentsSupport();   
+            }
+        }).catch(err => {
+            console.log(err);
+        })
     }
 
     return (

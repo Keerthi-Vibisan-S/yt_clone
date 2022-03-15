@@ -7,6 +7,15 @@ import { Reply } from './ReplyBox';
 export const ReRenderSubCom = React.createContext();
 
 export default function ReplyCommentBox(props) {
+    //! Using Abort Controller
+    let abortController = new AbortController();
+
+    //! Abort Cleanup
+    useEffect(() => {
+        return(
+            abortController.abort()
+        )
+    });
     
     const [reRender, setReRender] = useState(true);
 

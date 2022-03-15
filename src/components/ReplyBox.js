@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReplyCommentBox from './ReplyCommentBox';
 import CommentsLike from './CommentsLike';
 
 export const Reply = React.createContext();
 
 export default function ReplyBox(props) {
+    //! Using Abort Controller
+    let abortController = new AbortController();
+
+    //! Abort Cleanup
+    useEffect(() => {
+        return(
+            abortController.abort()
+        )
+    });
 
     //Use Context
 

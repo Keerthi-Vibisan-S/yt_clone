@@ -5,6 +5,16 @@ import ViewSubComments from './ViewSubComments';
 import { ReRenderSubCom } from './ReplyCommentBox';
 
 export default function ViewReplies(props) {
+    //! Using Abort Controller
+    let abortController = new AbortController();  
+
+    //! Abort Cleanup
+    useEffect(() => {
+        return(
+            abortController.abort()
+        )
+        });
+
     //! useContext Hook
     const reRender = useContext(ReRenderSubCom);
 
