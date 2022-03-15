@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import * as ai from 'react-icons/ai';
 import * as bs from 'react-icons/bs';
 import Axios from 'axios';
-import ViewReplies from './ViewReplies';
 import ReplyBox from './ReplyBox';
 
 export default function Comments(props) {
@@ -119,7 +118,6 @@ export default function Comments(props) {
                 
                 <ReplyBox Vid={Vid} MCid={n.Cid}/>
 
-                <ViewReplies MCid = {n.Cid}/>
               </div>
             );
           })}

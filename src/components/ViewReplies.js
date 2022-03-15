@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import * as ai from 'react-icons/ai';
 import Axios from 'axios';
 import ViewSubComments from './ViewSubComments';
+import { ReRenderSubCom } from './ReplyCommentBox';
 
 export default function ViewReplies(props) {
+    //! useContext Hook
+    const reRender = useContext(ReRenderSubCom);
 
     const {MCid} = props;
 
@@ -13,7 +16,7 @@ export default function ViewReplies(props) {
         const url = `http://localhost:2022/subComment/check/${MCid}`;
         let res = await Axios.get(url);
         setShow(res.data[0].NSubComment);
-    }, [MCid])
+    }, [MCid, reRender])
 
     if(show != 0)
     {
