@@ -99,30 +99,6 @@ export default class Subscriptions extends Component {
               </div>
           </section>
         );
-        // return (
-        //     <section className='scroll-view-component'>
-        //        {this.state.channelDetails.map((n, index) => {
-        //            return(
-        //             <div key={index} className="card mb-3" style={{width: "80%", margin: "0 auto"}}>
-                    // <div className="row g-0">
-                    //   <div className="col-md-4">
-                    //     <img src={n.cimg} className="img-fluid rounded-start" alt="..." />
-                    //   </div>
-        //               <div className="col-md-8">
-        //                 <div className="card-body">
-        //                   <h5 className="card-title">{n.cname}</h5>
-        //                   <p className="card-text">{n.about}</p>
-                          // <Link to={`/allVideos/${n.Cno}`} className='btn btn-primary fw-bold mt-5'>All Videos</Link>
-        //                   <button onClick={() => this.unSubscribe(n.Cno)} className='btn btn-outline-danger fw-bold float-end mt-5'>UNSUBSCRIBE</button>
-        //                   <div className='clear-fix'></div>
-        //                 </div>
-        //               </div>
-        //             </div>
-        //           </div>
-        //            )
-        //        })}
-        //     </section>
-        // )
     }
   }
 }

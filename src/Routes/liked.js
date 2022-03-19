@@ -48,7 +48,8 @@ class Likeds extends Component
                     return(
                         <div key={index} onClick={() => this.playVideo(n)} className='video-card'>
                                 <div>
-                                    <video src={src} className='img-fluid'/>
+                                    <img src = {n.vimg} className='img-fluid'></img>
+                                    {/* <video src={src} className='img-fluid'/> */}
                                 </div>
                                 <div className='p-2'>
                                     <h6>{n.vname}</h6>

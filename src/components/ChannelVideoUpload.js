@@ -16,6 +16,7 @@ export default function ChannelVideoUpload(props)
         desc: "",
         //vtype: "",
         date:  String (d.getUTCDate()+'/'+(d.getUTCMonth()+1)+"/"+d.getUTCFullYear()),
+        vimg: ""
     }
     );
 
@@ -66,6 +67,7 @@ export default function ChannelVideoUpload(props)
                         desc: "",
                         vtype: "",
                         date:  String (d.getUTCDate()+'/'+(d.getUTCMonth()+1)+"/"+d.getUTCFullYear()),
+                        vimg: ""
                     });
 
                     setFile(null);
@@ -136,6 +138,11 @@ export default function ChannelVideoUpload(props)
                             <div className="mb-3">
                                 <label htmlFor="Name" className="form-label">Content Name</label>
                                 <input className="form-control" type="text" id="Name" value={data.vname} onChange={(event) => setData({...data, vname: event.target.value})}/>
+                            </div>
+
+                            <div className="mb-3">
+                                <label htmlFor="desc" className="form-label">Cover Image</label>
+                                <input className="form-control" type="text" id="desc" value={data.vimg} onChange={(e) => setData({...data, vimg: e.target.value})} />
                             </div>
 
                             <div className="mb-3">

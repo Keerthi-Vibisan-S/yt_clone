@@ -41,7 +41,8 @@ export default function SubVideoDisplay(props) {
                         //Passing Data through React-Router-DOM Navigator
                         <div key={n.Vid} onClick={() => playVideo(n)} className='video-card'>
                             <div>
-                                <video src={src} className='img-fluid'/>
+                                <img src = {n.vimg} className='img-fluid'></img>
+                                {/* <video src={src} className='img-fluid'/> */}
                             </div>
                             <div className='p-2'>
                                 <h6>{n.vname}</h6>
